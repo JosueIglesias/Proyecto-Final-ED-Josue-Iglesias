@@ -7,7 +7,6 @@ export default class Nodo{
 
     crearNodo(valor){
         let t = valor
-        //console.log('esto es t sig:' + t.siguiente)
         valor = new Nodo(valor.valor)
         valor.hDer = t.siguiente.valor
         valor.hIzq = t.anterior.valor

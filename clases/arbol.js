@@ -83,12 +83,10 @@ export default class Arbol{
     recPreOrder(r, lista){
         if(r.valor === undefined){
             console.log(r)
-            //return r
             let exp = new Expresion(r)
             lista.agregar(exp)
         } else if (r.valor != undefined) {
             console.log(r.valor)
-            //return r.valor
             let exp = new Expresion(r.valor)
             lista.agregar(exp)
         }

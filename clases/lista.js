@@ -22,7 +22,10 @@ export default class Lista {
 
     eliminar(num) {
         let t = this.inicio
-        if (this.inicio === num){
+        
+        if( this.inicio === num && this.inicio.siguiente === null ){
+            this.inicio = null
+        } else if (this.inicio === num){
             this.inicio = this.inicio.siguiente
             this.inicio.anterior = null
         } else {
@@ -47,8 +50,6 @@ export default class Lista {
         while (t != null){
             if (t.valor === operador1 || t.valor === operador2 ) {
                 let nodo = new Nodo
-                //console.log(nodo.crearNodo(t))
-                //console.log('esto es t222 sig:' + t.siguiente.valor)
                 t.valor = nodo.crearNodo(t)
                 this.eliminar(t.siguiente)
                 this.eliminar(t.anterior)
@@ -57,5 +58,13 @@ export default class Lista {
                 t = t.siguiente
             }
         }
+    }
+
+    irUltimo(){
+        let t = this.inicio
+        while (t.siguiente != null){
+            t = t.siguiente
+        }
+        return t
     }
 }
