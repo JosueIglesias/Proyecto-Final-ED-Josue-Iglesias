@@ -7,6 +7,8 @@ var btnPreOrder = document.querySelector('#btnPreOrder')
 var btnPostOrder = document.querySelector('#btnPostOrder')
 var btnGenerar = document.querySelector('#btnGenerar')
 var termino = document.querySelector('#inputAgregar')
+var etResultadoPreOrder = document.querySelector('#etResultadoPreOrder')
+var etResultadoPostOrder = document.querySelector('#etResultadoPostOrder')
 
 
 var lista = new Lista
@@ -162,6 +164,7 @@ btnPreOrder.addEventListener('click', () =>{
 
     console.log('--------RESULTADO LIFO (PREORDER)---------')
     console.log(listaLifo.inicio.valor)
+    etResultadoPreOrder.innerHTML = 'Resultado PreOrder (LIFO): ' + listaLifo.inicio.valor
 
 })
 
@@ -241,4 +244,5 @@ while(listaPostOrder2.inicio != null){
 //console.log(listaPostOrder2)
 console.log('--------RESULTADO FIFO (POSTORDER)---------')
 console.log(listaFifo2.inicio.valor)
+etResultadoPostOrder.innerHTML = 'Resultado PostOrder (FIFO): ' + listaFifo2.inicio.valor
 })
