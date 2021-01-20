@@ -31,10 +31,6 @@ let exp8 = new Expresion('*')
 let exp9 = new Expresion(2)
 let exp10 = new Expresion('^')
 let exp11 = new Expresion(2)
-let exp12 = new Expresion('/')
-let exp13 = new Expresion(2)
-let exp14 = new Expresion('*')
-let exp15 = new Expresion(9)
 
 btnAgregar.addEventListener('click', () =>{
     console.log('--------Lista---------')
@@ -50,10 +46,7 @@ btnAgregar.addEventListener('click', () =>{
     lista.agregar(exp9)
     lista.agregar(exp10)
     lista.agregar(exp11)
-    lista.agregar(exp12)
-    lista.agregar(exp13)
-    lista.agregar(exp14)
-    lista.agregar(exp15)
+
 
     console.log('--------Lista---------')
     console.log(lista)
@@ -146,14 +139,115 @@ btnAgregar.addEventListener('click', () =>{
     }
     console.log(listaLifo)
 
-    console.log('--------RESULTADO---------')
+    console.log('--------RESULTADO LIFO---------')
     console.log(listaLifo.inicio.valor)
 
-//PROBANDO ELIMINAR ULTIMOS
-   //listaPreOrder.eliminar(listaPreOrder.irUltimo())
-   //listaPreOrder.eliminar(listaPreOrder.irUltimo())
+    //console.log('--------Lista fifo---------')
 
-   //console.log(listaPreOrder.irUltimo())
+    //console.log('--------RESULTADO FIFO---------')
+    //console.log(listaFifo.inicio.valor)
+
+    console.log('--------Lista FIFO---------')
+    
+    var listaPostOrder2 = arbol.PostOrder()
+var listaFifo2 = new Lista
+var i3 = 0
+
+while(listaPostOrder2.inicio != null){
+    let inicio = listaPostOrder2.inicio
+    let inicio2 = new Expresion
+    //console.log('valor de inicio: ' + inicio.valor)
+    if(isNaN(inicio.valor)){
+        //console.log('No es un numero ' + inicio.valor)
+        //listaPostOrder2.eliminar(inicio)
+        i3++
+        let elem2 = listaFifo2.irUltimo()
+        let elem1 = elem2.anterior
+        //console.log('ronda ' + i3 + ' operador ' + inicio.valor)
+        //console.log('elemento1: ' + elem1.valor)
+        //console.log('elemento2: ' + elem2.valor)
+        //console.log(i3)
+        let result = new Expresion
+        switch (inicio.valor){
+            case '^':
+            result.valor = Math.pow(elem1.valor, elem2.valor)
+            listaPostOrder2.eliminar(listaPostOrder2.inicio)
+            listaFifo2.agregar(result)
+            listaFifo2.eliminar(elem2)
+            listaFifo2.eliminar(elem1)
+            break
+            case '*':
+            result.valor = elem1.valor*elem2.valor
+            listaPostOrder2.eliminar(listaPostOrder2.inicio)
+            listaFifo2.agregar(result)
+            listaFifo2.eliminar(elem2)
+            listaFifo2.eliminar(elem1)
+            //console.log(listaFifo2)
+
+            break
+            case '/':
+            result.valor = elem1.valor/elem2.valor
+            listaPostOrder2.eliminar(listaPostOrder2.inicio)
+            listaFifo2.agregar(result)
+            listaFifo2.eliminar(elem2)
+            listaFifo2.eliminar(elem1)
+            break
+            case '+':
+            result.valor = elem1.valor+elem2.valor
+            listaPostOrder2.eliminar(listaPostOrder2.inicio)
+            listaFifo2.agregar(result)
+            listaFifo2.eliminar(elem2)
+            listaFifo2.eliminar(elem1)
+            break
+            case '-':
+            result.valor = elem1.valor-elem2.valor
+            listaPostOrder2.eliminar(listaPostOrder2.inicio)
+            listaFifo2.agregar(result)
+            listaFifo2.eliminar(elem2)
+            listaFifo2.eliminar(elem1)
+            break
+            default:
+                console.log('La expresión ' + inicio + ' no es válida')
+        }
+        //console.log('resultado ' + result.valor)
+
+    } else if(!isNaN(inicio.valor)) {
+        inicio2.valor = inicio.valor
+        //console.log('es un numero ' + inicio.valor)
+        listaFifo2.agregar(inicio2)
+        listaPostOrder2.eliminar(inicio)
+        i3++
+    } 
+}
+//console.log(listaPostOrder2)
+console.log('--------RESULTADO FIFO---------')
+console.log(listaFifo2.inicio.valor)
+//let elem1 = listaFifo2.irUltimo()
+//console.log(elem1.valor)
+
+
+
+/* SI JALA
+while(listaPostOrder2.inicio != null){
+    let inicio = listaPostOrder2.inicio
+    let inicio2 = new Expresion
+    console.log('valor de inicio: ' + inicio.valor)
+    if(isNaN(inicio.valor)){
+        console.log('No es un numero ' + inicio.valor)
+        listaPostOrder2.eliminar(inicio)
+        i3++
+        
+    } else if(!isNaN(inicio.valor)) {
+        inicio2.valor = inicio.valor
+        console.log('es un numero ' + inicio.valor)
+        listaFifo2.agregar(inicio2)
+        listaPostOrder2.eliminar(inicio)
+        i3++
+    } 
+}
+console.log(listaPostOrder2)
+console.log(listaFifo2)
+*/
 
 
 

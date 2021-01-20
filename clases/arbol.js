@@ -100,23 +100,29 @@ export default class Arbol{
 
 
     PostOrder(){
+        let lista = new Lista
         if (this.raiz === null){
             console.log('No hay una raiz')
         } else{
-            this.recPostOrder(this.raiz)
+            this.recPostOrder(this.raiz, lista)
+            return lista
         } 
     }
 
-    recPostOrder(r){
+    recPostOrder(r, lista){
         if (r.hIzq != null){
-            this.recPostOrder(r.hIzq)
+            this.recPostOrder(r.hIzq, lista)
         }
         if (r.hDer!= null){
-            this.recPostOrder(r.hDer)
+            this.recPostOrder(r.hDer, lista)
         }
         if(r.valor === undefined){
             console.log(r)
+            let exp = new Expresion(r)
+            lista.agregar(exp)
         } else {
+            let exp = new Expresion(r.valor)
+            lista.agregar(exp)
             console.log(r.valor)
         }
     }

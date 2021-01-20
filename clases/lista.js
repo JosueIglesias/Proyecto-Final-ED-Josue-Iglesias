@@ -23,7 +23,9 @@ export default class Lista {
     eliminar(num) {
         let t = this.inicio
         
-        if( this.inicio === num && this.inicio.siguiente === null ){
+        if (this.inicio === null){
+            this.inicio = null
+        } else if( this.inicio === num && this.inicio.siguiente === null ){
             this.inicio = null
         } else if (this.inicio === num){
             this.inicio = this.inicio.siguiente
