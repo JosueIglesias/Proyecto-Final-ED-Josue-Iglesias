@@ -3,10 +3,14 @@ import Expresion from "./clases/expresion.js"
 import Arbol from "./clases/arbol.js"
 
 var btnAgregar = document.querySelector('#btnAgregar')
+var btnPreOrder = document.querySelector('#btnPreOrder')
+var btnPostOrder = document.querySelector('#btnPostOrder')
+var btnGenerar = document.querySelector('#btnGenerar')
+var termino = document.querySelector('#inputAgregar')
+
+
 var lista = new Lista
 var arbol = new Arbol
-//var listaPreOrder = arbol.PreOrder()
-
 /*
 let exp1 = new Expresion(5)
 let exp2 = new Expresion('+')
@@ -20,21 +24,24 @@ let exp9 = new Expresion(2)
 let exp10 = new Expresion('^')
 let exp11 = new Expresion(2)
 */
-let exp1 = new Expresion(5)
-let exp2 = new Expresion('+')
-let exp3 = new Expresion(2)
-let exp4 = new Expresion('*')
-let exp5 = new Expresion(3)
-let exp6 = new Expresion('-')
-let exp7 = new Expresion(1)
-let exp8 = new Expresion('*')
-let exp9 = new Expresion(2)
-let exp10 = new Expresion('^')
-let exp11 = new Expresion(2)
-
 btnAgregar.addEventListener('click', () =>{
-    console.log('--------Lista---------')
+ //   console.log('--------Lista---------')
 
+
+let terminoNuevo = Number(termino.value)
+
+if (!isNaN(terminoNuevo)){
+    let exp = new Expresion(terminoNuevo)
+    lista.agregar(exp)
+    console.log(lista)
+} else {
+    let exp = new Expresion(termino.value)
+    lista.agregar(exp)
+    console.log(lista)
+}
+
+
+ /*
     lista.agregar(exp1)
     lista.agregar(exp2)
     lista.agregar(exp3)
@@ -46,8 +53,12 @@ btnAgregar.addEventListener('click', () =>{
     lista.agregar(exp9)
     lista.agregar(exp10)
     lista.agregar(exp11)
+*/
 
 
+
+//AJUSTAR ESTO
+/*  
     console.log('--------Lista---------')
     console.log(lista)
 
@@ -62,8 +73,10 @@ btnAgregar.addEventListener('click', () =>{
 
     console.log('--------Raiz arbol---------')
     console.log(arbol.raiz)
+*/
+//arbol.generar(lista)
 
-    console.log('--------Inorder---------')
+    /*console.log('--------Inorder---------')
     arbol.inOrder()
 
     console.log('--------Preorder---------')
@@ -71,15 +84,23 @@ btnAgregar.addEventListener('click', () =>{
     
     console.log('--------Postorder---------')
     arbol.PostOrder()
+*/
+})
 
-    console.log('--------Lista Preorder---------')
+btnGenerar.addEventListener('click', () => {
+    arbol.generar(lista)
+})
+
+btnPreOrder.addEventListener('click', () =>{
+
+    //console.log('--------Lista Preorder---------')
     var listaPreOrder = arbol.PreOrder()
     //console.log(listaPreOrder)
 
 
     //arbol.PreOrder(listaPreOrder)
     //console.log(listaPreOrder)
-    console.log('--------Lista Lifo---------')
+    //console.log('--------Lista Lifo---------')
     
     var listaLifo = new Lista
     let i = 0
@@ -137,17 +158,15 @@ btnAgregar.addEventListener('click', () =>{
             //console.log(i)
         }
     }
-    console.log(listaLifo)
+    //console.log(listaLifo)
 
-    console.log('--------RESULTADO LIFO---------')
+    console.log('--------RESULTADO LIFO (PREORDER)---------')
     console.log(listaLifo.inicio.valor)
 
-    //console.log('--------Lista fifo---------')
+})
 
-    //console.log('--------RESULTADO FIFO---------')
-    //console.log(listaFifo.inicio.valor)
-
-    console.log('--------Lista FIFO---------')
+btnPostOrder.addEventListener('click', () =>{
+    //console.log('--------Lista FIFO---------')
     
     var listaPostOrder2 = arbol.PostOrder()
 var listaFifo2 = new Lista
@@ -220,35 +239,6 @@ while(listaPostOrder2.inicio != null){
     } 
 }
 //console.log(listaPostOrder2)
-console.log('--------RESULTADO FIFO---------')
+console.log('--------RESULTADO FIFO (POSTORDER)---------')
 console.log(listaFifo2.inicio.valor)
-//let elem1 = listaFifo2.irUltimo()
-//console.log(elem1.valor)
-
-
-
-/* SI JALA
-while(listaPostOrder2.inicio != null){
-    let inicio = listaPostOrder2.inicio
-    let inicio2 = new Expresion
-    console.log('valor de inicio: ' + inicio.valor)
-    if(isNaN(inicio.valor)){
-        console.log('No es un numero ' + inicio.valor)
-        listaPostOrder2.eliminar(inicio)
-        i3++
-        
-    } else if(!isNaN(inicio.valor)) {
-        inicio2.valor = inicio.valor
-        console.log('es un numero ' + inicio.valor)
-        listaFifo2.agregar(inicio2)
-        listaPostOrder2.eliminar(inicio)
-        i3++
-    } 
-}
-console.log(listaPostOrder2)
-console.log(listaFifo2)
-*/
-
-
-
 })

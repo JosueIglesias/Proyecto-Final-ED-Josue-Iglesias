@@ -82,11 +82,11 @@ export default class Arbol{
 
     recPreOrder(r, lista){
         if(r.valor === undefined){
-            console.log(r)
+            //console.log(r)
             let exp = new Expresion(r)
             lista.agregar(exp)
         } else if (r.valor != undefined) {
-            console.log(r.valor)
+            //console.log(r.valor)
             let exp = new Expresion(r.valor)
             lista.agregar(exp)
         }
@@ -117,13 +117,13 @@ export default class Arbol{
             this.recPostOrder(r.hDer, lista)
         }
         if(r.valor === undefined){
-            console.log(r)
+            //console.log(r)
             let exp = new Expresion(r)
             lista.agregar(exp)
         } else {
             let exp = new Expresion(r.valor)
             lista.agregar(exp)
-            console.log(r.valor)
+            //console.log(r.valor)
         }
     }
 }
