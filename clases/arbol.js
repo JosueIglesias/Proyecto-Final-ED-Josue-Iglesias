@@ -42,34 +42,6 @@ export default class Arbol{
         }
     }
 
-    /*
-    PreOrder(lista){
-        if (this.raiz === null){
-            console.log('No hay una raiz')
-        } else{
-            this.recPreOrder(this.raiz, lista)
-        } 
-    }
-    */
-
-   /* recPreOrder(r, lista){
-        if(r.valor === undefined){
-            //console.log(r)
-            //return r
-            lista.agregar(r)
-        } else if (r.valor != undefined) {
-            //console.log(r.valor)
-            //return r.valor
-            lista.agregar(r.valor)
-        }
-        if (r.hIzq != null){
-            this.recPreOrder(r.hIzq, lista)
-        }
-        if (r.hDer!= null){
-            this.recPreOrder(r.hDer, lista)
-        }
-    }*/
-
     PreOrder(){
         let lista = new Lista
         if (this.raiz === null){
